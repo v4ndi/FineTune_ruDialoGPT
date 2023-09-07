@@ -4,7 +4,9 @@ import torch
 
 chat_history_dict = {}
 
-def generate_response(message, chat_history, chat_id):
+def generate_response(message: str, chat_history: str, chat_id: int,
+    tokenizer: AutoTokenizer, device: torch.device, model: AutoModelWithLMHead) -> str:
+
     if len(chat_history) == 0:
         encoded_message = tokenizer(f'@@ПЕРВЫЙ@@ {message} @@ВТОРОЙ@@', return_tensors='pt')
     else:
@@ -72,7 +74,13 @@ def main():
     def handle_message(message):
         user_input = message.text
         chat_history = get_chat_history(message.chat.id)
-        response = generate_response(user_input, chat_history, message.chat.id)
+        response = generate_response(
+            user_input,
+            chat_history, 
+            message.chat.id, 
+            tokenizer, device,
+            model
+        )
         bot.reply_to(message, response)
 
     try:
