@@ -1,6 +1,7 @@
 import telebot
 from transformers import AutoTokenizer, AutoModelWithLMHead
 import torch 
+import warnings
 
 chat_history_dict = {}
 
@@ -51,9 +52,12 @@ def get_chat_history(chat_id):
 
     return chat_history_dict[chat_id]
 
-
 def main():    
-    model_dir = "model\epoch1_ruDialoGPT_dvach"
+    warnings.filterwarnings("ignore")
+
+    model_dir = "model/epoch1_ruDialoGPT_dvach"
+    print("Загрузка модели...")
+
     model = AutoModelWithLMHead.from_pretrained(model_dir)
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -67,7 +71,7 @@ def main():
         with open('data/text_bot.txt', 'r', encoding='utf-8') as file:
             lines = file.readlines()  
 
-        hello_text = lines[:2]
+        hello_text = lines[0] + lines[1]
         bot.send_message(message.chat.id, hello_text)
 
     @bot.message_handler(func=lambda message: True)
@@ -84,15 +88,12 @@ def main():
         bot.reply_to(message, response)
 
     try:
+        print('BOT is running')
         bot.polling()
     except Exception as e:
         print(f"An error occurred: {e}")
     finally:
         print("Bot stopped.")
-
-    
-
-
 
 if __name__ == "__main__":
     main()
