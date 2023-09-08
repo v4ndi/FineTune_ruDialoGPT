@@ -18,17 +18,24 @@ The main idea was concate all dialogue turns in one row with special separation 
 Model trained only one epoch with batch_size = 8 on GPU google colab. The main reason of this parametrs is a lack of computer power. Model trained more than 3 hours with 3 evaluating on validation data.
 Train dataset size > 100k. All details you can find in my [notebook](https://github.com/v4ndi/FineTune_ruDialoGPT/blob/main/src/Fine_Tune_ruDialoGPT.ipynb)
 
-## How to test model by your own
+## How to try to interact with fine-tuned model
+### Dowload model files
+[google drive](https://drive.google.com/drive/folders/1O5sYA4oCDuU5241QvqXfTrsCR_GXGdK9?usp=sharing)
+### Put floder epoch1_ruDialoGPT_dvach into folder model
+It should look like this
+```
+.../model/epoch1_ruDialoGPT_dvach
+```
 ### Running bot in termial 
 ```
-git clone \<repo-url>
+git clone <repo-url>
 docker build -t <name_image> -f Dockerfile_bot ## from the dir with dockerfile
 docker run -it <name_image>
 ```
 ![](materials/bot_terminal.png)  
 ### Running bot in telegram
 ```
-git clone \<repo-url>
+git clone <repo-url>
 docker build -t <name_image> -f Dockerfile_telegram ## from the dir with dockerfile
 docker run -it <name_image>
 ```
