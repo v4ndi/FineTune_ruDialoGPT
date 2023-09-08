@@ -31,13 +31,13 @@ After git clone find folder model and put folder epoch1_ruDialoGPT_dvach into th
 ```
 ### Running bot in termial 
 ```
-docker build -t <name_image> -f Dockerfile_bot ## from the dir with dockerfile
+docker build -t <name_image> -f Dockerfile_bot .
 docker run -it <name_image>
 ```
 ![](materials/bot_terminal.png)  
 ### Running bot in telegram
 ```
-docker build -t <name_image> -f Dockerfile_telegram ## from the dir with dockerfile
+docker build -t <name_image> -f Dockerfile_telegram .
 docker run -it <name_image>
 ```
 After run it will ask you TelegramBOT TOKEN and you need to paste it.   
