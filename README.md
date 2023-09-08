@@ -12,9 +12,25 @@ I collected all of the data using a Python script called prepare_messages.py. Th
 
 ## Data tokenization
 The main idea was concate all dialogue turns in one row with special separation tokens. The concated turns looks like:  
-<div style="border: 2px solid black; padding: 10px;">
-  **\<sp1\>context_3\<sp2\>context_2\<sp1\>context_1\<sp2\>response\<sp1\>**
-</div>
+  **\<sp1>context_3\<sp2>context_2\<sp1\>context_1\<sp2\>response\<sp1\>**  
 
+## Fine tune model
+Model trained only one epoch with batch_size = 8 on GPU google colab. The main reason of this parametrs is a lack of computer power. Model trained more than 3 hours with 3 evaluating on validation data.
+Train dataset size > 100k. All details you can find in my [notebook](https://github.com/v4ndi/FineTune_ruDialoGPT/blob/main/src/Fine_Tune_ruDialoGPT.ipynb)
+
+## How to test model by your own
+### Running bot in termial 
+```
+git clone \<repo-url>
+docker build -t <name_image> -f Dockerfile_bot ## from the dir with dockerfile
+docker run -it <name_image>
+```
+### Running bot in telegram
+```
+git clone \<repo-url>
+docker build -t <name_image> -f Dockerfile_telegram ## from the dir with dockerfile
+docker run -it <name_image>
+```
+After run it will ask you TelegramBOT TOKEN and you need to paste it. 
 
 
