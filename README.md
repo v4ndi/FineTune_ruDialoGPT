@@ -32,5 +32,6 @@ docker build -t <name_image> -f Dockerfile_telegram ## from the dir with dockerf
 docker run -it <name_image>
 ```
 After run it will ask you TelegramBOT TOKEN and you need to paste it. 
+![]("materials/bot_telegram_running.png")
 
 
