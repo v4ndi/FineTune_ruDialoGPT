@@ -21,21 +21,22 @@ Train dataset size > 100k. All details you can find in my [notebook](https://git
 ## How to try to interact with fine-tuned model
 ### Dowload model files
 [google drive](https://drive.google.com/drive/folders/1O5sYA4oCDuU5241QvqXfTrsCR_GXGdK9?usp=sharing)
-### Put floder epoch1_ruDialoGPT_dvach into folder model
-It should look like this
+### Clone repo
 ```
-.../model/epoch1_ruDialoGPT_dvach
+git clone <hhtp/ssh>
+```
+After git clone find folder model and put folder epoch1_ruDialoGPT_dvach into the /model. It should look like this
+```
+/model/epoch1_ruDialoGPT_dvach
 ```
 ### Running bot in termial 
 ```
-git clone <repo-url>
 docker build -t <name_image> -f Dockerfile_bot ## from the dir with dockerfile
 docker run -it <name_image>
 ```
 ![](materials/bot_terminal.png)  
 ### Running bot in telegram
 ```
-git clone <repo-url>
 docker build -t <name_image> -f Dockerfile_telegram ## from the dir with dockerfile
 docker run -it <name_image>
 ```
